@@ -1,11 +1,9 @@
-import os
-import requests
 import json
-from datetime import datetime, date, timedelta
-import sys
-import schedule
-import time
+import os
+from datetime import datetime, timedelta
 from enum import IntEnum
+
+import requests
 
 BOT_TOKEN = os.environ["BOT_TOKEN"]
 CHAT_ID = os.environ["CHAT_ID"]
@@ -20,7 +18,7 @@ class weekday(IntEnum):
     SATURDAY = 5
     SUNDAY = 6
 
-def job():
+def main():
     current_date = datetime.now()
     current_day = current_date.weekday()
     monday_time = "18:50"
@@ -54,14 +52,8 @@ def job():
 
 
     base_url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendPoll"
-    # parameters = {
-    #     "chat_id" : "-919661948",
-    #     "question" : "Волейбол " + play_date.strftime("%d.%m.%Y") + " " + play_time + " \U0001F600",
-    #     "options" : json.dumps(["Буду","Не буду","+1", "+2", "+3"]),
-    #     "is_anonymous" : False,
-    #     "allows_multiple_answers": True
-    # }
     resp = requests.get(base_url, data = parameters)
     print(resp.text)
 
-job()
+if __name__ == "__main__":
+    main()
