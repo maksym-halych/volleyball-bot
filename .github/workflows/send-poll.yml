@@ -1,0 +1,22 @@
+name: Send volleyball poll
+
+on:
+  schedule:
+    # Thursdays at 13:00 UTC (15:00 at UTC+2). GitHub cron is always UTC.
+    - cron: "0 13 * * 4"
+  workflow_dispatch:
+
+jobs:
+  send-poll:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: astral-sh/setup-uv@v6
+
+      - name: Send poll
+        run: uv run python run.py
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
+          THREAD_ID: ${{ secrets.THREAD_ID }}

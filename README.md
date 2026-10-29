@@ -30,3 +30,7 @@ make run
 ```
 
 Run `make` (or `make help`) to list available commands.
+
+## Scheduled run
+
+The [Send volleyball poll](.github/workflows/send-poll.yml) GitHub Actions workflow posts the poll every Thursday at 13:00 UTC. It reads `BOT_TOKEN`, `CHAT_ID` and `THREAD_ID` from the repository's Actions secrets. It can also be started manually from the Actions tab, but the script only posts on Thursdays.
