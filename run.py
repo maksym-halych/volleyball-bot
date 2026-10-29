@@ -27,7 +27,7 @@ def main():
         return
 
     play_date = current_date + timedelta(4)
-    play_time = "18:50"
+    play_time = "20:30"
     question = f"Волейбол {play_date:%d.%m.%Y} {play_time} \U0001f600"
     parameters = {
         "chat_id": CHAT_ID,
