@@ -2,8 +2,8 @@ name: Send volleyball poll
 
 on:
   schedule:
-    # Thursdays at 13:00 UTC (15:00 at UTC+2). GitHub cron is always UTC.
-    - cron: "0 13 * * 4"
+    # Thursdays at 07:00 UTC (09:00 at UTC+2). GitHub cron is always UTC.
+    - cron: "0 7 * * 4"
   workflow_dispatch:
 
 jobs:
