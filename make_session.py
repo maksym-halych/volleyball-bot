@@ -11,7 +11,9 @@ from telethon.sync import TelegramClient
 
 api_id = int(os.environ.get("TG_API_ID") or input("api_id: "))
 api_hash = os.environ.get("TG_API_HASH") or input("api_hash: ")
+phone = os.environ.get("TG_PHONE") or input("phone (e.g. +380...): ")
 
-with TelegramClient(StringSession(), api_id, api_hash) as client:
-    print("\nTG_SESSION:\n")
-    print(client.session.save())
+client = TelegramClient(StringSession(), api_id, api_hash).start(phone=phone)
+print("\nTG_SESSION:\n")
+print(client.session.save())
+client.disconnect()

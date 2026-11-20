@@ -40,7 +40,7 @@ The [Send volleyball poll](.github/workflows/send-poll.yml) GitHub Actions workf
 Bots cannot read chat history, so [analyze_votes.py](analyze_votes.py) reads past polls as a regular Telegram user account and reports who voted for each option.
 
 1. Get `api_id` and `api_hash` at <https://my.telegram.org> → API development tools.
-2. On your own computer, run `make session` (or `uv run python make_session.py`), log in with your phone number and code, and copy the printed session string. It grants full access to the account: keep it secret.
+2. On your own computer, run `make session` (or `uv run python make_session.py`), log in with your phone number (`TG_PHONE` in `.env`, or typed when asked) and the code Telegram sends, and copy the printed session string. It grants full access to the account: keep it secret.
 3. Add the Actions secrets `TG_API_ID`, `TG_API_HASH` and `TG_SESSION` (`CHAT_ID` and `THREAD_ID` are reused).
 4. Run the [Analyze poll votes](.github/workflows/analyze-votes.yml) workflow from the Actions tab and choose how many months to analyze.
 
