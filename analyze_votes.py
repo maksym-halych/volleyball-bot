@@ -43,6 +43,10 @@ def text_of(value) -> str:
 def display_name(user) -> str:
     if user is None:
         return "?"
+    # For your contacts Telegram returns the name you saved, not theirs, so
+    # prefer the username, which is always their own.
+    if user.contact and user.username:
+        return f"@{user.username}"
     name = " ".join(filter(None, [user.first_name, user.last_name])) or "?"
     return f"{name} (@{user.username})" if user.username else name
 
